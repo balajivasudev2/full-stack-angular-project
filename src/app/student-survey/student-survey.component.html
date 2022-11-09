@@ -1,0 +1,89 @@
+<form class="w3-container w3-card-4" ngNativeValidate id="surveyForm" (ngSubmit)="onSubmit()">		
+	
+			<br>
+			<!-- username-->
+			<p>      
+				<label class="w3-text required" for="UserName"><b>Name</b></label><br>
+				<input class="w3-input" type="text" id="userName" name="userName" [(ngModel)]="student.username" autocomplete="on" required><br><br> 
+			</p>
+
+			<!-- address-->
+			<p>      
+				<label class="w3-text required" for="Address"><b>Street Address</b></label><br>
+				<input class="w3-input" type="text" id="address" [(ngModel)]="student.address" name="address" autocomplete="on" required><br><br>
+			</p>
+			<!-- city-->
+			<p>      
+				<label class="w3-text required" for="City"><b>City</b></label><br>
+				<input class="w3-input" type="text" id="city" [(ngModel)]="student.city"  name="city" autocomplete="on" required>				
+			</p>
+			<!-- state-->
+			<p>      
+				<label class="w3-text required" for="State"><b>State</b></label><br>
+				<input class="w3-input" type="text" id="state" [(ngModel)]="student.state"  name="state" autocomplete="on" required>				
+			</p>
+    <!-- zip-->
+			<p>      
+				<label class="w3-text required" for="zip"><b>zip</b></label><br>
+				<input class="w3-input" type="text" id="zip" [(ngModel)]="student.zip"  name="zip" placeholder="20105" pattern="[0-9]{5}" autocomplete="on" required ><br><br>
+			</p>
+			<p></p>
+            <!-- telephone number-->
+			<p>      
+				<label class="w3-text required" for="phone"><b>Telephone Number</b></label><br>
+				<input type="w3-input" type="text" id="phonenumber" [(ngModel)]="student.phonenumber" name="phonenumber" placeholder="9998889999" autocomplete="on" required><br><br>
+			</p>
+			<!--email-->
+			<p>      
+				<label class="w3-text required" for="Email"><b>Email</b></label><br>
+				<input class="w3-input" type="text" id="email" [(ngModel)]="student.email" name="email" placeholder="abc@gmail.com" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" autocomplete="on" required>
+			</p>
+			<!--date of survey -->
+			<p>  
+				<label class="w3-text required" for="dateOfSurvey"><b>Date of Survey</b></label><br>
+				<input class="w3-input" type="date" id="Date" [(ngModel)]="student.date" name="Date" autocomplete="on" required>
+			</p>
+			<br>
+
+			<div class="w3-row">
+					<legend><b>What did you like most about campus?</b></legend>
+					<div *ngFor="let n of reason">
+						<input type="checkbox" value="{{n.value}}" unchecked="n.check" (change)="reasonchange($event)">{{n.key}}
+					</div>
+			</div>
+			<br>
+			<div class="w3-row">		
+				
+					<legend style="color: #42413f;"><b>Reason for your interest in the university?</b></legend>
+					<input class="w3-radio" type="radio" id="friends" [(ngModel)]="student.reason1" name="reson1" value="Friends" autocomplete="on">
+					<label class="w3-validate" for="friends">Friends</label><br>
+					<input class="w3-radio" type="radio" id="Television" [(ngModel)]="student.reason2" name="reason2" value="Television" autocomplete="on">
+					<label class="w3-validate" for="Television">Television</label><br>
+					<input class="w3-radio" type="radio" id="Internet" [(ngModel)]="student.reason3" name="reason3" value="other" autocomplete="on">
+					<label class="w3-validate" for="Television">Internet</label><br>
+					<input class="w3-radio" type="radio" id="other" [(ngModel)]="student.reason4" name="reason4" value="other" autocomplete="on">
+					<label class="w3-validate" for="other">Others</label>
+				
+			</div>
+			<div class="w3-row required">	
+						<legend style="color: #42413f;" required><b>How likely do you recommend this university?</b></legend>
+						<select name="recommenduni" [(ngModel)]="student.recommenduni" id="recommenduni">
+							<option value="select">Select</option>
+							<option value="Very Likely">Very Likely</option>
+							<option value="Likely">Likely</option>
+							<option value="UnLikely">UnLikely</option>					
+						</select>
+				</div>
+			<p>
+				<br>
+				<label class="w3-text" for="comments"><b>Additional Comments</b></label><br>
+				<textarea id="comment" name="comments" [(ngModel)]="student.comment" rows="4" cols="60" autocomplete="on">
+				</textarea>
+				<br>
+			</p>
+			<p>
+				<button class = "btn btn-info" style="margin-left: 10px"> Submit</button> &nbsp;
+	            <button type= "reset" class = "btn btn-info" style="margin-left: 10px"> Cancel</button> 
+			</p>
+			<div style="margin-left:77%;color:red;"> * mark indicates required fields</div>				
+			</form>

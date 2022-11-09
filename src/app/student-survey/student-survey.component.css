@@ -1,0 +1,17 @@
+.required:after {
+    content: "*";
+    color: red;
+}
+
+.form
+{
+	text-align: center;
+}
+
+#surveyForm
+{
+     color: #42413f;
+    font-family: 'Roboto Slab',serif;
+    font-weight: normal;
+    margin-left:37%;
+}

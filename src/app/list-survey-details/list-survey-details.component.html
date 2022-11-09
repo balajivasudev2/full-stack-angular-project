@@ -1,0 +1,20 @@
+<h2> Survey List</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> Name</th>
+            <th> Address</th>
+            <th> Email </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let student of students" >
+            <td> {{ student.username }} </td>
+            <td> {{ student.address }} </td>
+            <td> {{ student.email}} </td>
+            <td>
+<button (click) = "viewdetails(student.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

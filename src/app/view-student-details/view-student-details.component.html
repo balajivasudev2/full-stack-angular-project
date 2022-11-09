@@ -1,0 +1,31 @@
+<div class=heading>
+<h3> View Student Survey Details</h3>
+</div>
+<div class=details>
+    <div><label> <b> Name: </b></label> {{student.username}} </div>
+    <div> <label> <b> Address: </b></label> {{student.address}} </div>
+    <div> <label> <b> City: </b></label> {{student.city}} </div>
+    <div> <label> <b> State: </b></label> {{student.state}} </div>
+    <div> <label> <b> Zip: </b></label> {{student.zip}} </div>
+    <div> <label> <b> Phone Number: </b></label> {{student.phonenumber}} </div>
+    <div> <label> <b> Email: </b></label> {{student.email}} </div>
+    <div> <label> <b> Date of Survey: </b></label> {{student.date}} </div>
+    <div>
+        <label> <b> What did you like most about campus? </b></label> 
+        <div ng-if="student.reason"> {{student.reason}} </div>
+        
+    </div>
+   <div>
+        <label> <b> Reason for your interest in the university? </b></label>
+        <div ng-if="reason1"> {{student.reason1}} </div>
+        <div ng-if="reason2"> {{student.reason2}} </div>
+        <div ng-if="reason3"> {{student.reason3}} </div>
+        <div ng-if="reason4"> {{student.reason4}} </div>
+    </div>
+    <div>
+    	<label><b> How likely do you recommend this university? </b></label><br> {{student.recommenduni}}
+    </div>
+    <div>
+    	<label><b> Comment </b></label> {{student.comment}}
+    </div>
+</div>
