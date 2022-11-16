@@ -70,6 +70,7 @@
               "browserTarget": "angular-frontend:build:development"
             }
             "options":{
+              "browserTarget": "angular-frontend:build"
               "proxyConfig": "src/proxy.conf.json"
             }
           },
