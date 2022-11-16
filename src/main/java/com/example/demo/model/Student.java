@@ -66,7 +66,7 @@ public class Student {
 		
 	}
 	public Student(String username, String address, String city, String state, long zip, long phonenumber,
-			String email, String date, String fav, String loc, String campus, String atm, String dorm, String sport,
+			String email, String date, String fav, String loc, String campus, String atm, String dorm, String sport,String reason,
 			String reason1, String reason2, String reason3, String reason4, String recommenduni, String comment) {
 		super();
 		this.username = username;
@@ -184,5 +184,4 @@ public class Student {
 		this.comment = comment;
 	}
 	
-
 }
