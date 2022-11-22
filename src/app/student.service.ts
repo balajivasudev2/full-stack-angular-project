@@ -10,7 +10,7 @@ import { Student } from './student';
 export class StudentService {
    
    constructor(private httpClient: HttpClient) { }
-   private baseURL = "http://35.193.105.21:9090/api/v1/student";
+   private baseURL = "http://34.68.8.156:8080/api/v1/student";
 
    getStudentList(): Observable<Student[]> {
     return this.httpClient.get<Student[]>(`${this.baseURL}`);
