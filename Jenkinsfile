@@ -14,7 +14,7 @@ pipeline {
                 sh 'docker build -t myfrontend .' 
                 
                 // we’re going to tag our new image and tag name is latest
-                sh 'docker image tag myfrontend bgatla/myfrontend:${BUILD_TIMESTAMP}'
+                sh 'docker image tag myfrontend bgatla/myfrontend:latest'
                
           }
         }
@@ -25,7 +25,7 @@ pipeline {
             sh 'docker login -u bgatla -p ${dockerhubpwd}'
            }
            // pushing image to dockerhub
-        sh 'docker image push bgatla/myfrontend:${BUILD_TIMESTAMP}'
+        sh 'docker image push bgatla/myfrontend:latest'
         
         }
     }
@@ -42,7 +42,7 @@ pipeline {
                 sh 'docker build -t mybackend .' 
                 
                 // we’re going to tag our new image and tag name is latest
-                sh 'docker image tag mybackend bgatla/mybackend:${BUILD_TIMESTAMP}'
+                sh 'docker image tag mybackend bgatla/mybackend:latest'
                
           }
         }
@@ -53,15 +53,15 @@ pipeline {
                 sh 'docker login -u bgatla -p ${dockerhubpwd}'
            }
            // pushing image to dockerhub
-           sh 'docker image push bgatla/mybackend:${BUILD_TIMESTAMP}'
+           sh 'docker image push bgatla/mybackend:latest'
         }
     }
     
     stage('push to k8s')
     {
         steps {
-            sh 'kubectl set image deployment/clusterdeploy container-0=bgatla/myfrontend:${BUILD_TIMESTAMP} -n default'
-            sh 'kubectl set image deployment/clusterdeploy container-1=bgatla/mybackend:${BUILD_TIMESTAMP} -n default'
+            sh 'kubectl set image deployment/clusterdeploy container-0=bgatla/myfrontend:latest -n default'
+            sh 'kubectl set image deployment/clusterdeploy container-1=bgatla/mybackend:latest -n default'
             sh 'kubectl rollout restart deploy clusterdeploy -n default'
         }
     }
